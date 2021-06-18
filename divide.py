@@ -193,14 +193,14 @@ class Entries:
         return spec_name
 
     def test_reports(self,data):
-        
+
         for key,value in data.items():
-            
+
             if re.search('SUBMITTAL',key,re.I) :
                 print(key)
 
         return 
-
+    
     def search(self,word,data):
         
         sub_section={}
@@ -317,7 +317,7 @@ main=['01 73 29', '01 78 00', '01 78 36', '07 59 00', '07 62 00','07 72 00', '07
 
 def individual(spec,b):
 
-    file='Docs/individual files/DLR(combined)/'+b[spec]
+    file='Docs/DLR(combined)/'+b[spec]
     get_data(file)
 
     list_data,str_data=read_data('raw_text.txt')
@@ -340,7 +340,7 @@ def multiple(main,b,divs):
         writer.writerow(header)
         f.close()
     zz=0
-    for i in os.listdir(r'C:\Users\raghavg\vcons\Projects\submittals\Docs\individual files\DLR(combined)'):
+    for i in os.listdir('C:/Users/raghavg/vcons/Projects/submittals/Docs/DLR(combined)'):
         for num, pdf in b.items():
             if pdf==i:
                 spec=num
@@ -349,7 +349,7 @@ def multiple(main,b,divs):
         # if spec in main:
             # print(spec[:2]=='01')
             print("============ Processing {} ==============".format(i))
-            file='Docs/individual files/DLR(combined)/'+i
+            file='Docs/DLR(combined)/'+i
             try:
                 get_data(file)
                 list_data,str_data=read_data('raw_text.txt')
